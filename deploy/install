@@ -1,0 +1,21 @@
+#!/bin/sh
+
+TIMESTAMP=`date "+%b-%d-%Y-%T"`
+
+# Set default configuration
+#--------------------------
+
+logger -p local6.notice -t installer "app-kibana-core - securing default configuration"
+
+if [ -e /opt/kibana/config/kibana.yml ]; then
+    cp /opt/kibana/config/kibana.yml /var/clearos/kibana/backup/kibana.yml.$TIMESTAMP
+fi
+
+cp /usr/clearos/apps/kibana/deploy/kibana.yml /opt/kibana/config/kibana.yml
+
+# As suggested in kibana RPM install output
+#------------------------------------------
+
+systemctl daemon-reload >/dev/null 2>&1
+systemctl enable kibana.service >/dev/null 2>&1
+systemctl start kibana.service >/dev/null 2>&1
