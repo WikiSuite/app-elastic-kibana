@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Kibana controller.
+ * Kibana settings controller.
  *
  * @category   apps
  * @package    kibana
@@ -34,7 +34,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 /**
- * Kibana controller.
+ * Kibana settings controller.
  *
  * @category   apps
  * @package    kibana
@@ -45,26 +45,68 @@
  * @link       https://www.egloo.ca/netify/community
  */
 
-class Kibana extends ClearOS_Controller
+class Settings extends ClearOS_Controller
 {
     /**
-     * Kibana default controller.
+     * Kibana settings controller
      *
      * @return view
      */
 
     function index()
     {
+        $this->_common('view');
+    }
+
+    /**
+     * Edit view.
+     *
+     * @return view
+     */
+
+    function edit()
+    {
+        $this->_common('edit');
+    }
+
+    /**
+     * View view.
+     *
+     * @return view
+     */
+
+    function view()
+    {
+        $this->_common('view');
+    }
+
+    /**
+     * Common view/edit handler.
+     *
+     * @param string $form_type form type
+     *
+     * @return view
+     */
+
+    function _common($form_type)
+    {
         // Load dependencies
         //------------------
 
         $this->lang->load('kibana');
 
+        // Load view data
+        //---------------
+
+        try {
+        } catch (Exception $e) {
+            $this->page->view_exception($e);
+            return;
+        }
+
         // Load views
         //-----------
 
-        $views = array('kibana/server', 'kibana/settings');
-
-        $this->page->view_forms($views, lang('kibana_app_name'));
+        $this->page->view_form('kibana/settings', $data, lang('base_settings'));
     }
 }

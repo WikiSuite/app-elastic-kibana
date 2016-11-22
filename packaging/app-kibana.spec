@@ -15,7 +15,7 @@ Requires: app-base
 Requires: app-elasticsearch
 
 %description
-Kibana - a description goes here.
+Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch system.
 
 %package core
 Summary: Kibana - Core
@@ -27,7 +27,7 @@ Requires: kibana
 Requires: java
 
 %description core
-Kibana - a description goes here.
+Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch system.
 
 This package provides the core API and libraries.
 

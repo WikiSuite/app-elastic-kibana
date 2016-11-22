@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Kibana controller.
+ * Kibana daemon controller.
  *
  * @category   apps
  * @package    kibana
@@ -30,11 +30,24 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
+// B O O T S T R A P
+///////////////////////////////////////////////////////////////////////////////
+
+$bootstrap = getenv('CLEAROS_BOOTSTRAP') ? getenv('CLEAROS_BOOTSTRAP') : '/usr/clearos/framework/shared';
+require_once $bootstrap . '/bootstrap.php';
+
+///////////////////////////////////////////////////////////////////////////////
+// D E P E N D E N C I E S
+///////////////////////////////////////////////////////////////////////////////
+
+require clearos_app_base('base') . '/controllers/daemon.php';
+
+///////////////////////////////////////////////////////////////////////////////
 // C L A S S
 ///////////////////////////////////////////////////////////////////////////////
 
 /**
- * Kibana controller.
+ * Kibana daemon controller.
  *
  * @category   apps
  * @package    kibana
@@ -45,26 +58,10 @@
  * @link       https://www.egloo.ca/netify/community
  */
 
-class Kibana extends ClearOS_Controller
+class Server extends Daemon
 {
-    /**
-     * Kibana default controller.
-     *
-     * @return view
-     */
-
-    function index()
+    function __construct()
     {
-        // Load dependencies
-        //------------------
-
-        $this->lang->load('kibana');
-
-        // Load views
-        //-----------
-
-        $views = array('kibana/server', 'kibana/settings');
-
-        $this->page->view_forms($views, lang('kibana_app_name'));
+        parent::__construct('kibana', 'kibana');
     }
 }

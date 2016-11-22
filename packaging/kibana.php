@@ -21,7 +21,7 @@ $configlet = array(
 	'title' => lang('kibana_app_name'),
 	'package' => 'kibana',
 	'process_name' => 'kibana',
-	'pid_file' => '/var/run/kibana/kibana.pid',
+	'pid_file' => '/var/run/kibana.pid',
 	'reloadable' => FALSE,
 	'url' => '/app/kibana'
 );
