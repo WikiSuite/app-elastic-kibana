@@ -1,5 +1,5 @@
 
-Name: app-kibana-web
+Name: app-elastic-kibana
 Epoch: 1
 Version: 1.0.1
 Release: 1%{dist}
@@ -42,54 +42,54 @@ This package provides the core API and libraries.
 %build
 
 %install
-mkdir -p -m 755 %{buildroot}/usr/clearos/apps/kibana_web
-cp -r * %{buildroot}/usr/clearos/apps/kibana_web/
+mkdir -p -m 755 %{buildroot}/usr/clearos/apps/elastic_kibana
+cp -r * %{buildroot}/usr/clearos/apps/elastic_kibana/
 
-install -d -m 0755 %{buildroot}/var/clearos/kibana_web
-install -d -m 0755 %{buildroot}/var/clearos/kibana_web/backup
+install -d -m 0755 %{buildroot}/var/clearos/elastic_kibana
+install -d -m 0755 %{buildroot}/var/clearos/elastic_kibana/backup
 install -D -m 0644 packaging/kibana.conf %{buildroot}/usr/clearos/sandbox/etc/httpd/conf.d/kibana.conf
 install -D -m 0644 packaging/kibana.php %{buildroot}/var/clearos/base/daemon/kibana.php
 
 %post
-logger -p local6.notice -t installer 'app-kibana-web - installing'
+logger -p local6.notice -t installer 'app-elastic-kibana - installing'
 
 %post core
-logger -p local6.notice -t installer 'app-kibana-web-core - installing'
+logger -p local6.notice -t installer 'app-elastic-kibana-core - installing'
 
 if [ $1 -eq 1 ]; then
-    [ -x /usr/clearos/apps/kibana_web/deploy/install ] && /usr/clearos/apps/kibana_web/deploy/install
+    [ -x /usr/clearos/apps/elastic_kibana/deploy/install ] && /usr/clearos/apps/elastic_kibana/deploy/install
 fi
 
-[ -x /usr/clearos/apps/kibana_web/deploy/upgrade ] && /usr/clearos/apps/kibana_web/deploy/upgrade
+[ -x /usr/clearos/apps/elastic_kibana/deploy/upgrade ] && /usr/clearos/apps/elastic_kibana/deploy/upgrade
 
 exit 0
 
 %preun
 if [ $1 -eq 0 ]; then
-    logger -p local6.notice -t installer 'app-kibana-web - uninstalling'
+    logger -p local6.notice -t installer 'app-elastic-kibana - uninstalling'
 fi
 
 %preun core
 if [ $1 -eq 0 ]; then
-    logger -p local6.notice -t installer 'app-kibana-web-core - uninstalling'
-    [ -x /usr/clearos/apps/kibana_web/deploy/uninstall ] && /usr/clearos/apps/kibana_web/deploy/uninstall
+    logger -p local6.notice -t installer 'app-elastic-kibana-core - uninstalling'
+    [ -x /usr/clearos/apps/elastic_kibana/deploy/uninstall ] && /usr/clearos/apps/elastic_kibana/deploy/uninstall
 fi
 
 exit 0
 
 %files
 %defattr(-,root,root)
-/usr/clearos/apps/kibana_web/controllers
-/usr/clearos/apps/kibana_web/htdocs
-/usr/clearos/apps/kibana_web/views
+/usr/clearos/apps/elastic_kibana/controllers
+/usr/clearos/apps/elastic_kibana/htdocs
+/usr/clearos/apps/elastic_kibana/views
 
 %files core
 %defattr(-,root,root)
-%exclude /usr/clearos/apps/kibana_web/packaging
-%dir /usr/clearos/apps/kibana_web
-%dir /var/clearos/kibana_web
-%dir /var/clearos/kibana_web/backup
-/usr/clearos/apps/kibana_web/deploy
-/usr/clearos/apps/kibana_web/language
+%exclude /usr/clearos/apps/elastic_kibana/packaging
+%dir /usr/clearos/apps/elastic_kibana
+%dir /var/clearos/elastic_kibana
+%dir /var/clearos/elastic_kibana/backup
+/usr/clearos/apps/elastic_kibana/deploy
+/usr/clearos/apps/elastic_kibana/language
 /usr/clearos/sandbox/etc/httpd/conf.d/kibana.conf
 /var/clearos/base/daemon/kibana.php

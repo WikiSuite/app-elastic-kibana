@@ -4,20 +4,20 @@
 // General information
 /////////////////////////////////////////////////////////////////////////////
 
-$app['basename'] = 'kibana_web';
+$app['basename'] = 'elastic_kibana';
 $app['version'] = '1.0.1';
 $app['release'] = '1';
 $app['vendor'] = 'eGloo';
 $app['packager'] = 'eGloo';
 $app['license'] = 'GPLv3';
 $app['license_core'] = 'LGPLv3';
-$app['description'] = lang('kibana_web_app_description');
+$app['description'] = lang('elastic_kibana_app_description');
 
 /////////////////////////////////////////////////////////////////////////////
 // App name and categories
 /////////////////////////////////////////////////////////////////////////////
 
-$app['name'] = lang('kibana_web_app_name');
+$app['name'] = lang('elastic_kibana_app_name');
 $app['category'] = lang('base_category_server');
 $app['subcategory'] = 'Search';
 
@@ -48,8 +48,8 @@ $app['requires'] = array(
 );
 
 $app['core_directory_manifest'] = array(
-    '/var/clearos/kibana_web' => array(),
-    '/var/clearos/kibana_web/backup' => array(),
+    '/var/clearos/elastic_kibana' => array(),
+    '/var/clearos/elastic_kibana/backup' => array(),
 );
 
 $app['core_file_manifest'] = array(
@@ -58,7 +58,7 @@ $app['core_file_manifest'] = array(
 );
 
 $app['delete_dependency'] = array(
-    'app-kibana-web-core',
+    'app-elastic-kibana-core',
     'app-kibana-plugin-core',
     'kibana',
 );

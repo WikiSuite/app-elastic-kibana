@@ -4,10 +4,10 @@
  * Kibana view.
  *
  * @category   apps
- * @package    kibana
+ * @package    elastic-kibana
  * @subpackage view
  * @author     eGloo <team@egloo.ca>
- * @copyright  2016 eGloo
+ * @copyright  2017 Marc Laporte
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
  * @link       https://www.egloo.ca/netify/community
  */
@@ -39,4 +39,4 @@ $this->lang->load('kibana');
 // Form
 ///////////////////////////////////////////////////////////////////////////////
 
-echo infobox_highlight(lang('kibana_web_app_name'), 'Nothing to see here yet.');
+echo infobox_highlight(lang('elastic_kibana_app_name'), 'Nothing to see here yet.');

@@ -4,10 +4,10 @@
  * Kibana settings controller.
  *
  * @category   apps
- * @package    kibana-web
+ * @package    elastic-kibana
  * @subpackage controllers
  * @author     eGloo <team@egloo.ca>
- * @copyright  2016 eGloo
+ * @copyright  2017 Marc Laporte
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
  * @link       https://www.egloo.ca/netify/community
  */
@@ -37,10 +37,10 @@
  * Kibana settings controller.
  *
  * @category   apps
- * @package    kibana-web
+ * @package    elastic-kibana
  * @subpackage controllers
  * @author     eGloo <team@egloo.ca>
- * @copyright  2016 eGloo
+ * @copyright  2017 Marc Laporte
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
  * @link       https://www.egloo.ca/netify/community
  */
@@ -93,7 +93,7 @@ class Settings extends ClearOS_Controller
         // Load dependencies
         //------------------
 
-        $this->lang->load('kibana_web');
+        $this->lang->load('elastic_kibana');
 
         // Load view data
         //---------------
@@ -107,6 +107,6 @@ class Settings extends ClearOS_Controller
         // Load views
         //-----------
 
-        $this->page->view_form('kibana_web/settings', $data, lang('base_settings'));
+        $this->page->view_form('elastic_kibana/settings', $data, lang('base_settings'));
     }
 }
