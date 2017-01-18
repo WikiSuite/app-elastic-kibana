@@ -18,10 +18,10 @@ clearos_load_language('kibana');
 ///////////////////////////////////////////////////////////////////////////////
 
 $configlet = array(
-	'title' => lang('kibana_app_name'),
+	'title' => lang('kibana_web_app_name'),
 	'package' => 'kibana',
 	'process_name' => 'kibana',
 	'pid_file' => '/var/run/kibana.pid',
 	'reloadable' => FALSE,
-	'url' => '/app/kibana'
+	'url' => '/app/kibana_web'
 );

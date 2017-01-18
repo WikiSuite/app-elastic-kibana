@@ -62,6 +62,6 @@ class Server extends Daemon
 {
     function __construct()
     {
-        parent::__construct('kibana', 'kibana');
+        parent::__construct('kibana', 'kibana_web');
     }
 }

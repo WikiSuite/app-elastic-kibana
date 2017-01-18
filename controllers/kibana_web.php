@@ -4,7 +4,7 @@
  * Kibana controller.
  *
  * @category   apps
- * @package    kibana
+ * @package    kibana-web
  * @subpackage controllers
  * @author     eGloo <team@egloo.ca>
  * @copyright  2016 eGloo
@@ -37,7 +37,7 @@
  * Kibana controller.
  *
  * @category   apps
- * @package    kibana
+ * @package    kibana-web
  * @subpackage controllers
  * @author     eGloo <team@egloo.ca>
  * @copyright  2016 eGloo
@@ -45,7 +45,7 @@
  * @link       https://www.egloo.ca/netify/community
  */
 
-class Kibana extends ClearOS_Controller
+class Kibana_Web extends ClearOS_Controller
 {
     /**
      * Kibana default controller.
@@ -58,13 +58,13 @@ class Kibana extends ClearOS_Controller
         // Load dependencies
         //------------------
 
-        $this->lang->load('kibana');
+        $this->lang->load('kibana_web');
 
         // Load views
         //-----------
 
-        $views = array('kibana/server', 'kibana/settings');
+        $views = array('kibana_web/server', 'kibana_web/settings');
 
-        $this->page->view_forms($views, lang('kibana_app_name'));
+        $this->page->view_forms($views, lang('kibana_web_app_name'));
     }
 }

@@ -39,4 +39,4 @@ $this->lang->load('kibana');
 // Form
 ///////////////////////////////////////////////////////////////////////////////
 
-echo infobox_highlight(lang('kibana_app_name'), 'Nothing to see here yet.');
+echo infobox_highlight(lang('kibana_web_app_name'), 'Nothing to see here yet.');

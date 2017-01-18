@@ -4,7 +4,7 @@
  * Kibana settings controller.
  *
  * @category   apps
- * @package    kibana
+ * @package    kibana-web
  * @subpackage controllers
  * @author     eGloo <team@egloo.ca>
  * @copyright  2016 eGloo
@@ -37,7 +37,7 @@
  * Kibana settings controller.
  *
  * @category   apps
- * @package    kibana
+ * @package    kibana-web
  * @subpackage controllers
  * @author     eGloo <team@egloo.ca>
  * @copyright  2016 eGloo
@@ -93,7 +93,7 @@ class Settings extends ClearOS_Controller
         // Load dependencies
         //------------------
 
-        $this->lang->load('kibana');
+        $this->lang->load('kibana_web');
 
         // Load view data
         //---------------
@@ -107,6 +107,6 @@ class Settings extends ClearOS_Controller
         // Load views
         //-----------
 
-        $this->page->view_form('kibana/settings', $data, lang('base_settings'));
+        $this->page->view_form('kibana_web/settings', $data, lang('base_settings'));
     }
 }
