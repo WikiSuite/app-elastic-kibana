@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'kibana_web';
-$app['version'] = '1.0.0';
+$app['version'] = '1.0.1';
 $app['release'] = '1';
 $app['vendor'] = 'eGloo';
 $app['packager'] = 'eGloo';
@@ -35,8 +35,12 @@ $app['core_obsoletes'] = array(
 
 $app['core_requires'] = array(
     'app-elasticsearch-core',
+    'app-kibana-plugin-core',
+    'clearos-framework >= 7.3.0',
     'kibana',
     'java',
+    'mod_authnz_external-webconfig',
+    'mod_authz_unixgroup-webconfig'
 );
 
 $app['requires'] = array(
@@ -49,10 +53,12 @@ $app['core_directory_manifest'] = array(
 );
 
 $app['core_file_manifest'] = array(
-    'kibana.php'=> array('target' => '/var/clearos/base/daemon/kibana.php')
+    'kibana.php'=> array('target' => '/var/clearos/base/daemon/kibana.php'),
+    'kibana.conf'=> array('target' => '/usr/clearos/sandbox/etc/httpd/conf.d/kibana.conf')
 );
 
 $app['delete_dependency'] = array(
     'app-kibana-web-core',
+    'app-kibana-plugin-core',
     'kibana',
 );

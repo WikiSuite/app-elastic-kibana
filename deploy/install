@@ -8,10 +8,10 @@ TIMESTAMP=`date "+%b-%d-%Y-%T"`
 logger -p local6.notice -t installer "app-kibana-web-core - securing default configuration"
 
 if [ -e /opt/kibana/config/kibana.yml ]; then
-    cp /opt/kibana/config/kibana.yml /var/clearos/kibana/backup/kibana.yml.$TIMESTAMP
+    cp /opt/kibana/config/kibana.yml /var/clearos/kibana_web/backup/kibana.yml.$TIMESTAMP
 fi
 
-cp /usr/clearos/apps/kibana/deploy/kibana.yml /opt/kibana/config/kibana.yml
+cp /usr/clearos/apps/kibana_web/deploy/kibana.yml /opt/kibana/config/kibana.yml
 
 # As suggested in kibana RPM install output
 #------------------------------------------

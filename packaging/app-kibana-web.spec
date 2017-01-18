@@ -1,7 +1,7 @@
 
 Name: app-kibana-web
 Epoch: 1
-Version: 1.0.0
+Version: 1.0.1
 Release: 1%{dist}
 Summary: Kibana
 License: GPLv3
@@ -24,8 +24,12 @@ License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
 Requires: app-elasticsearch-core
+Requires: app-kibana-plugin-core
+Requires: clearos-framework >= 7.3.0
 Requires: kibana
 Requires: java
+Requires: mod_authnz_external-webconfig
+Requires: mod_authz_unixgroup-webconfig
 Obsoletes: app-kibana-core
 
 %description core
@@ -43,6 +47,7 @@ cp -r * %{buildroot}/usr/clearos/apps/kibana_web/
 
 install -d -m 0755 %{buildroot}/var/clearos/kibana_web
 install -d -m 0755 %{buildroot}/var/clearos/kibana_web/backup
+install -D -m 0644 packaging/kibana.conf %{buildroot}/usr/clearos/sandbox/etc/httpd/conf.d/kibana.conf
 install -D -m 0644 packaging/kibana.php %{buildroot}/var/clearos/base/daemon/kibana.php
 
 %post
@@ -86,4 +91,5 @@ exit 0
 %dir /var/clearos/kibana_web/backup
 /usr/clearos/apps/kibana_web/deploy
 /usr/clearos/apps/kibana_web/language
+/usr/clearos/sandbox/etc/httpd/conf.d/kibana.conf
 /var/clearos/base/daemon/kibana.php
