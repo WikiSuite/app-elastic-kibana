@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Kibana controller.
+ * Kibana policy controller.
  *
  * @category   apps
  * @package    elastic-kibana
@@ -30,11 +30,24 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
+// B O O T S T R A P
+///////////////////////////////////////////////////////////////////////////////
+
+$bootstrap = getenv('CLEAROS_BOOTSTRAP') ? getenv('CLEAROS_BOOTSTRAP') : '/usr/clearos/framework/shared';
+require_once $bootstrap . '/bootstrap.php';
+
+///////////////////////////////////////////////////////////////////////////////
+// D E P E N D E N C I E S
+///////////////////////////////////////////////////////////////////////////////
+
+require clearos_app_base('groups') . '/controllers/groups.php';
+
+///////////////////////////////////////////////////////////////////////////////
 // C L A S S
 ///////////////////////////////////////////////////////////////////////////////
 
 /**
- * Kibana controller.
+ * Kibana policy controller.
  *
  * @category   apps
  * @package    elastic-kibana
@@ -45,26 +58,14 @@
  * @link       https://www.egloo.ca
  */
 
-class Elastic_Kibana extends ClearOS_Controller
+class Policy extends Groups
 {
     /**
-     * Kibana default controller.
-     *
-     * @return view
+     * Kibana policy constructor.
      */
 
-    function index()
+    function __construct()
     {
-        // Load dependencies
-        //------------------
-
-        $this->lang->load('elastic_kibana');
-
-        // Load views
-        //-----------
-
-        $views = array('elastic_kibana/server', 'elastic_kibana/settings', 'elastic_kibana/policy');
-
-        $this->page->view_forms($views, lang('elastic_kibana_app_name'));
+        parent::__construct('elastic_kibana', array('kibana_plugin'));
     }
 }
