@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Kibana daemon controller.
+ * MariaDB ajax helpers.
  *
  * @category   apps
  * @package    elastic-kibana
- * @subpackage controllers
+ * @subpackage javascript
  * @author     eGloo <team@egloo.ca>
  * @copyright  2017 Marc Laporte
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
@@ -25,7 +25,7 @@
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.  
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -37,49 +37,56 @@ $bootstrap = getenv('CLEAROS_BOOTSTRAP') ? getenv('CLEAROS_BOOTSTRAP') : '/usr/c
 require_once $bootstrap . '/bootstrap.php';
 
 ///////////////////////////////////////////////////////////////////////////////
-// D E P E N D E N C I E S
+// T R A N S L A T I O N S
 ///////////////////////////////////////////////////////////////////////////////
 
-require clearos_app_base('base') . '/controllers/daemon.php';
+clearos_load_language('kibana');
 
 ///////////////////////////////////////////////////////////////////////////////
-// C L A S S
+// J A V A S C R I P T
 ///////////////////////////////////////////////////////////////////////////////
 
-/**
- * Kibana daemon controller.
- *
- * @category   apps
- * @package    elastic-kibana
- * @subpackage controllers
- * @author     eGloo <team@egloo.ca>
- * @copyright  2017 Marc Laporte
- * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
- * @link       https://www.egloo.ca
- */
+header('Content-Type:application/x-javascript');
+?>
 
-class Server extends Daemon
-{
-    function __construct()
-    {
-        parent::__construct('kibana', 'elastic_kibana');
-    }
+///////////////////////////////////////////////////////////////////////////
+// M A I N
+///////////////////////////////////////////////////////////////////////////
 
-    /**
-     * Full daemon status.
-     *
-     * @return json daemon status encoded in json
-     */
+$(document).ready(function() {
+    $('#kibana_not_running').hide();
+    $('#kibana_running').hide();
 
-    function full_status()
-    {
-        header('Cache-Control: no-cache, must-revalidate');
-        header('Content-type: application/json');
+    clearosGetKibanaStatus();
+});
 
-        $this->load->library('elastic_kibana/Kibana');
 
-        $status['status'] = $this->kibana->get_status();
+// Functions
+//----------
 
-        echo json_encode($status);
+function clearosGetKibanaStatus() {
+    $.ajax({
+        url: '/app/elastic_kibana/server/status',
+        method: 'GET',
+        dataType: 'json',
+        success : function(payload) {
+            handleKibanaForm(payload);
+            window.setTimeout(clearosGetKibanaStatus, 1000);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            window.setTimeout(clearosGetKibanaStatus, 1000);
+        }
+    });
+}
+
+function handleKibanaForm(payload) {
+    if (payload.status == 'running') {
+        $('#kibana_running').show();
+        $('#kibana_not_running').hide();
+    } else {
+        $('#kibana_running').hide();
+        $('#kibana_not_running').show();
     }
 }
+
+// vim: syntax=javascript

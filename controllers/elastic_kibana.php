@@ -9,7 +9,7 @@
  * @author     eGloo <team@egloo.ca>
  * @copyright  2017 Marc Laporte
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
- * @link       https://www.egloo.ca/netify/community
+ * @link       https://www.egloo.ca
  */
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -42,7 +42,7 @@
  * @author     eGloo <team@egloo.ca>
  * @copyright  2017 Marc Laporte
  * @license    http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
- * @link       https://www.egloo.ca/netify/community
+ * @link       https://www.egloo.ca
  */
 
 class Elastic_Kibana extends ClearOS_Controller
