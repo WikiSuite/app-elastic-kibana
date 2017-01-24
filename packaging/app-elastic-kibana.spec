@@ -91,5 +91,6 @@ exit 0
 %dir /var/clearos/elastic_kibana/backup
 /usr/clearos/apps/elastic_kibana/deploy
 /usr/clearos/apps/elastic_kibana/language
+/usr/clearos/apps/elastic_kibana/libraries
 /usr/clearos/sandbox/etc/httpd/conf.d/kibana.conf
 /var/clearos/base/daemon/kibana.php
