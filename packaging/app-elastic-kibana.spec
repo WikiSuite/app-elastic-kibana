@@ -1,7 +1,7 @@
 
 Name: app-elastic-kibana
 Epoch: 1
-Version: 1.0.1
+Version: 1.1.1
 Release: 1%{dist}
 Summary: Kibana
 License: GPLv3
@@ -12,7 +12,6 @@ Source: %{name}-%{version}.tar.gz
 Buildarch: noarch
 Requires: %{name}-core = 1:%{version}-%{release}
 Requires: app-base
-Requires: app-elasticsearch
 Obsoletes: app-kibana
 
 %description
