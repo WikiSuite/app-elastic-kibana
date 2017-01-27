@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'elastic_kibana';
-$app['version'] = '1.1.2';
+$app['version'] = '1.1.3';
 $app['release'] = '1';
 $app['vendor'] = 'eGloo';
 $app['packager'] = 'eGloo';
