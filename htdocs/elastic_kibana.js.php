@@ -1,7 +1,7 @@
 <?php
 
 /**
- * MariaDB ajax helpers.
+ * Elasticserach ajax helpers.
  *
  * @category   apps
  * @package    elastic-kibana
