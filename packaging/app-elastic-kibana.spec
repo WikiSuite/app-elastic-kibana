@@ -1,13 +1,13 @@
 
 Name: app-elastic-kibana
 Epoch: 1
-Version: 1.1.3
+Version: 1.1.4
 Release: 1%{dist}
 Summary: Kibana
 License: GPLv3
 Group: ClearOS/Apps
 Packager: eGloo
-Vendor: eGloo
+Vendor: WikiSuite
 Source: %{name}-%{version}.tar.gz
 Buildarch: noarch
 Requires: %{name}-core = 1:%{version}-%{release}
@@ -86,6 +86,7 @@ exit 0
 %files core
 %defattr(-,root,root)
 %exclude /usr/clearos/apps/elastic_kibana/packaging
+%exclude /usr/clearos/apps/elastic_kibana/unify.json
 %dir /usr/clearos/apps/elastic_kibana
 %dir /var/clearos/elastic_kibana
 %dir /var/clearos/elastic_kibana/backup
