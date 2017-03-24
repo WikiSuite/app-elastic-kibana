@@ -50,7 +50,7 @@ echo "</div>";
 echo "<div id='kibana_running' style='display:none;'>";
 
 $options['buttons']  = array(
-    anchor_custom('https://' . $_SERVER['SERVER_ADDR'] . ':81/app/kibana', lang('elastic_kibana_go_to_management_tool'), 'high', array('target' => '_blank'))
+    anchor_custom('https://' . $_SERVER['SERVER_NAME'] . ':81/app/kibana', lang('elastic_kibana_go_to_management_tool'), 'high', array('target' => '_blank'))
 );
 
 echo infobox_highlight(
