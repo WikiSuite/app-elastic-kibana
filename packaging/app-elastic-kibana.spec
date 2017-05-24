@@ -1,7 +1,7 @@
 
 Name: app-elastic-kibana
 Epoch: 1
-Version: 1.1.5
+Version: 1.2.0
 Release: 1%{dist}
 Summary: Kibana
 License: GPLv3
@@ -26,7 +26,7 @@ Requires: app-base-core
 Requires: app-elasticsearch-core
 Requires: app-kibana-plugin-core
 Requires: clearos-framework >= 7.3.0
-Requires: kibana
+Requires: kibana >= 5.4.0
 Requires: java
 Requires: mod_authnz_external-webconfig
 Requires: mod_authz_unixgroup-webconfig

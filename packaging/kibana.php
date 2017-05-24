@@ -20,7 +20,7 @@ clearos_load_language('elastic_kibana');
 $configlet = array(
 	'title' => lang('elastic_kibana_app_name'),
 	'package' => 'kibana',
-	'process_name' => '/opt/kibana/bin/../node/bin/node',
+	'process_name' => '/usr/share/kibana/bin/../node/bin/node',
 	'reloadable' => FALSE,
 	'url' => '/app/elastic_kibana'
 );

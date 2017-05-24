@@ -7,11 +7,11 @@ TIMESTAMP=`date "+%b-%d-%Y-%T"`
 
 logger -p local6.notice -t installer "app-elastic-kibana-core - securing default configuration"
 
-if [ -e /opt/kibana/config/kibana.yml ]; then
-    cp /opt/kibana/config/kibana.yml /var/clearos/elastic_kibana/backup/kibana.yml.$TIMESTAMP
+if [ -e /etc/kibana/kibana.yml ]; then
+    cp /etc/kibana/kibana.yml /var/clearos/elastic_kibana/backup/kibana.yml.$TIMESTAMP
 fi
 
-cp /usr/clearos/apps/elastic_kibana/deploy/kibana.yml /opt/kibana/config/kibana.yml
+cp /usr/clearos/apps/elastic_kibana/deploy/kibana.yml /etc/kibana/kibana.yml
 
 # As suggested in kibana RPM install output
 #------------------------------------------

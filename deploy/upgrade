@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Add server.basePath
+#--------------------
+
+CHECK=`grep "^server.basePath:" /etc/kibana/kibana.yml 2>/dev/null`
+
+if [ -z "$CHECK" ]; then
+    CHECK=`grep "^#[[:space:]]*server.basePath:" /etc/kibana/kibana.yml 2>/dev/null`
+    if [ -z "$CHECK" ]; then
+        logger -p local6.notice -t installer "app-elastic-kibana - updating server.basePath"
+        sed -i -e 's/^#[[:space:]]*server.basePath:.*/server.basePath: "\/kibana"/' /etc/kibana/kibana.yml
+    else
+        logger -p local6.notice -t installer "app-elastic-kibana - adding server.basePath"
+        echo 'server.basePath: "/kibana"' >> /etc/kibana/kibana.yml
+    fi
+
+    systemctl stop kibana.service >/dev/null 2>&1
+    sleep 2
+    systemctl start kibana.service >/dev/null 2>&1
+fi

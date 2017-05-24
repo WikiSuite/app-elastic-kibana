@@ -5,7 +5,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'elastic_kibana';
-$app['version'] = '1.1.5';
+$app['version'] = '1.2.0';
 $app['release'] = '1';
 $app['vendor'] = 'WikiSuite';
 $app['packager'] = 'eGloo';
@@ -45,7 +45,7 @@ $app['core_requires'] = array(
     'app-elasticsearch-core',
     'app-kibana-plugin-core',
     'clearos-framework >= 7.3.0',
-    'kibana',
+    'kibana >= 5.4.0',
     'java',
     'mod_authnz_external-webconfig',
     'mod_authz_unixgroup-webconfig'
