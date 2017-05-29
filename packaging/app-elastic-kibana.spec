@@ -1,7 +1,7 @@
 
 Name: app-elastic-kibana
 Epoch: 1
-Version: 1.2.0
+Version: 1.2.1
 Release: 1%{dist}
 Summary: Kibana
 License: GPLv3
@@ -23,7 +23,7 @@ Summary: Kibana - Core
 License: LGPLv3
 Group: ClearOS/Libraries
 Requires: app-base-core
-Requires: app-elasticsearch-core
+Requires: app-elasticsearch-core >= 1:1.2.1
 Requires: app-kibana-plugin-core
 Requires: clearos-framework >= 7.3.0
 Requires: kibana >= 5.4.0
