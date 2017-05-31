@@ -17,5 +17,5 @@ cp /usr/clearos/apps/elastic_kibana/deploy/kibana.yml /etc/kibana/kibana.yml
 #------------------------------------------
 
 systemctl daemon-reload >/dev/null 2>&1
-systemctl enable kibana.service >/dev/null 2>&1
-systemctl start kibana.service >/dev/null 2>&1
+systemctl disable kibana.service >/dev/null 2>&1
+systemctl stop kibana.service >/dev/null 2>&1

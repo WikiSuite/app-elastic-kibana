@@ -1,7 +1,7 @@
 
 Name: app-elastic-kibana
 Epoch: 1
-Version: 1.2.1
+Version: 1.2.3
 Release: 1%{dist}
 Summary: Kibana
 License: GPLv3
