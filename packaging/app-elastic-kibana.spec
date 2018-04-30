@@ -1,11 +1,11 @@
 
 Name: app-elastic-kibana
 Epoch: 1
-Version: 1.2.3
+Version: 1.2.4
 Release: 1%{dist}
 Summary: Kibana
 License: GPLv3
-Group: ClearOS/Apps
+Group: Applications/Apps
 Packager: eGloo
 Vendor: WikiSuite
 Source: %{name}-%{version}.tar.gz
@@ -19,9 +19,9 @@ Obsoletes: app-kibana
 Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch system.
 
 %package core
-Summary: Kibana - Core
+Summary: Kibana - API
 License: LGPLv3
-Group: ClearOS/Libraries
+Group: Applications/API
 Requires: app-base-core
 Requires: app-elasticsearch-core >= 1:1.2.1
 Requires: app-kibana-plugin-core

@@ -5,13 +5,26 @@
 /////////////////////////////////////////////////////////////////////////////
 
 $app['basename'] = 'elastic_kibana';
-$app['version'] = '1.2.3';
+$app['version'] = '1.2.4';
 $app['release'] = '1';
 $app['vendor'] = 'WikiSuite';
 $app['packager'] = 'eGloo';
 $app['license'] = 'GPLv3';
 $app['license_core'] = 'LGPLv3';
 $app['description'] = lang('elastic_kibana_app_description');
+$app['powered_by'] = array(
+    'vendor' => array(
+        'name' => 'Elastic',
+        'url' => 'https://www.elastic.co'
+    ),
+    'packages' => array(
+        'kibana' => array(
+            'name' => 'Kibana',
+            'version' => '---',
+            'url' => 'https://www.elastic.co/products/kibana',
+        ),
+    ),
+);
 
 /////////////////////////////////////////////////////////////////////////////
 // App name and categories
